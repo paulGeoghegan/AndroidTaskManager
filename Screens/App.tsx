@@ -7,7 +7,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 //Screen imports
-import {AddTasksScreen} from './addTasksScreen';
+import {AddTasksScreen} from './AddTasksScreen';
 import {TaskScreen} from './TaskScreen';
 import {UpcomingScreen} from './UpcomingScreen';
 
