@@ -11,6 +11,7 @@ import {
 	TextInput,
 	View,
 } from 'react-native';
+import ModalDropdown from 'react-native-modal-dropdown';
 
 const AddTasksScreen = ({ navigation }:{navigation : any}) =>{
 	return (
@@ -19,9 +20,9 @@ const AddTasksScreen = ({ navigation }:{navigation : any}) =>{
 			onSubmit={values => console.log(values)}
 		>
 		{({handleChange, handleBlur, handleSubmit, values }) => (
-				<View style={styles.container} accessibilityLabel='Title'>
+				<View style={styles.container}>
 					<View accessible={true}>
-						<Text importantForAccessibility='no'>Title</Text>
+						<Text accessibilityElementsHidden={true} importantForAccessibility='no'>Title</Text>
 						<TextInput
 							accessibilityLabel='Title'
 							autoCapitalize='words'
@@ -33,7 +34,7 @@ const AddTasksScreen = ({ navigation }:{navigation : any}) =>{
 						/>
 					</View>
 					<View accessible={true}>
-						<Text importantForAccessibility='no'>Description</Text>
+						<Text accessibilityElementsHidden={true} importantForAccessibility='no'>Description</Text>
 						<TextInput
 							accessibilityLabel='Description'
 							autoCapitalize='sentences'
@@ -43,6 +44,13 @@ const AddTasksScreen = ({ navigation }:{navigation : any}) =>{
 							multiline
 							value={values.description}
 						/>
+					</View>
+					<View accessible={true}>
+						<Text accessibilityElementsHidden={true} importantForAccessibility='no'>Category</Text>
+						<ModalDropdown defaultValue='Select a category...' showSearch options={['All']}/>
+					</View>
+					<View accessible={true}>
+
 					</View>
 					<Button onPress={handleSubmit} title='Add Task'/>
 				</View>
@@ -54,6 +62,9 @@ const AddTasksScreen = ({ navigation }:{navigation : any}) =>{
 const styles = StyleSheet.create({
 	container:{
 		flex:1
+	},
+	Text:{
+		color:'black'
 	},
 });
 
